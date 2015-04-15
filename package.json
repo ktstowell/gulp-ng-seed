@@ -1,0 +1,32 @@
+{
+  "name": "gulp-ng-seed",
+  "version": "1.0.0",
+  "description": "Gulp driven Angular seed with supporting CLI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ktstowell/gulp-ng-seed.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ktstowell/gulp-ng-seed/issues"
+  },
+  "homepage": "https://github.com/ktstowell/gulp-ng-seed",
+  "devDependencies": {
+    "chalk": "^1.0.0",
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.4",
+    "gutil": "^1.6.4",
+    "interpret": "^0.5.2",
+    "liftoff": "^2.0.3",
+    "minimist": "^1.1.1",
+    "v8flags": "^2.0.3"
+  },
+  "bin": {
+    "gulp-ng-seed": "./bin/gulp-ng-seed.js"
+  }
+}
