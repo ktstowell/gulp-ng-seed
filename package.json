@@ -19,11 +19,15 @@
   "devDependencies": {
     "chalk": "^1.0.0",
     "gulp": "^3.8.11",
+    "gulp-replace": "^0.5.3",
+    "gulp-run": "^1.6.7",
     "gulp-util": "^3.0.4",
     "gutil": "^1.6.4",
     "interpret": "^0.5.2",
     "liftoff": "^2.0.3",
     "minimist": "^1.1.1",
+    "mkdir-p": "0.0.6",
+    "run-sequence": "^1.0.2",
     "v8flags": "^2.0.3"
   },
   "bin": {
