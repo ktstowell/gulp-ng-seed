@@ -7,7 +7,8 @@
  */
 angular.module('APP_NAME', [
   'ngRoute',
-  'APP_NAME.Main'
+  'APP_NAME.System',
+  'APP_NAME.Modules'
 ]).service('APP_NAME', ['APP_NAME.Modules', 'APP_NAME.System', function(Modules, System) {
   return {
     Modules: Modules,

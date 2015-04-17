@@ -7,6 +7,10 @@
  */
 var gulp = require('gulp');
 var connect = require('gulp-connect');
+var inject = require('gulp-inject');
+var concat = require('gulp-concat');
+var run = require('run-sequence');
+var angularFileSort = require('gulp-angular-filesort');
 
 //
 // STYLE TASKS
@@ -17,6 +21,24 @@ var connect = require('gulp-connect');
 // SCRIPT TASKS
 //------------------------------------------------------------------------------------------//
 // @description Linting, concatenation, etc.
+gulp.task('scripts.concat', function() {
+  return gulp.src(['app/system/**/*.js', 'app/modules/**/*.js', 'app/app.js'])
+    .pipe(angularFileSort())
+    .pipe(concat('APP_NAME.js'))
+    .pipe(gulp.dest('.tmp'));
+});
+
+gulp.task('inject.scripts', function() {
+  var target = gulp.src('app/index.html');
+  var sources = gulp.src('.tmp/APP_NAME.js');
+
+  return target.pipe(inject(sources, {relative: true,
+      transform: function(filepath) {
+        return '<script src="APP_NAME.js"></script>';
+      }
+    }))
+    .pipe(gulp.dest('app'));
+});
 
 //
 // CONNECT TASKS
@@ -32,8 +54,8 @@ gulp.task('watch', function() {
 
 gulp.task('connect', function() {
   return connect.server({
-    root: 'app',
-    port: 'APP_PORT',
+    root: ['app', '.tmp'],
+    port: 9000,
     livereload: true
   });
 });
@@ -42,4 +64,6 @@ gulp.task('connect', function() {
 // SERVING
 //------------------------------------------------------------------------------------------//
 // @description Launches app.
-gulp.task('serve', ['connect', 'watch']);
+gulp.task('serve', function() {
+  run('scripts.concat', ['inject.scripts', 'connect', 'watch']);
+});

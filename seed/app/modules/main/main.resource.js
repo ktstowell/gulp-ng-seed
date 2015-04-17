@@ -5,13 +5,13 @@
  ***********************************************************************************************************************************************
  * @description
  */
-angular.module('APP_NAME.Main')
-  .service('APP_NAME.Modules.Main.Resource', ['$http', function($http) {
+angular.module('APP_NAME.Modules.Main')
+  .service('APP_NAME.Modules.Main.Resource', ['$http', 'APP_NAME.Modules.Main.Proxy', function($http, Proxy) {
     //
     // MAIN RESOURCE NAMESPACE
     //------------------------------------------------------------------------------------------//
     // @description
-    var Resource = {url: 'http://www.api.com/'};
+    var Resource = {url: '/users'};
 
     //
     // MAIN RESOURCE API
@@ -23,7 +23,7 @@ angular.module('APP_NAME.Main')
      * @returns {*}
      */
     Resource.get = function() {
-      return $http({method: 'GET', url: Resource.url});
+      return Proxy.get({method: 'GET', url: Resource.url});
     };
 
     /**

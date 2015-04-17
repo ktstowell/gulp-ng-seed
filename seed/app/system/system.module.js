@@ -5,7 +5,9 @@
  ***********************************************************************************************************************************************
  * @description
  */
-angular.module('APP_NAME.System', [])
+angular.module('APP_NAME.System', [
+    'APP_NAME.System.Structs'
+  ])
   .service('APP_NAME.System', ['APP_NAME.System.Structs', function(Structs) {
     return {
       Structs: Structs
