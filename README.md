@@ -1,3 +1,6 @@
+# DEPRECATED
+Please see: https://github.com/ktstowell/gulp-ng-seed
+
 # gulp-ng-seed
 Gulp generator for Angular apps.
 
